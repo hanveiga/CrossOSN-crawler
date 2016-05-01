@@ -19,4 +19,4 @@ Then run:
 ```pip install -r requirements.txt```
 
 ## Dataset
-To get a snapshot of the dataset from February 2016 that you can create with these scripts, feel free to email han.veiga@gmail.com
+To get a snapshot of the dataset from February 2016 that you can create with these scripts, get in touch by mail with han.veiga@gmail.com
