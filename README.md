@@ -8,7 +8,7 @@ __find_users.py__ searches through Twitter for users who crossposted Instagram a
 __fetch_user_data.py__ grabs the profiles and timelines of a list of users or of a list of tweets/instagram posts/foursquare check ins.
 
 ## How to run the scripts
-Best way is to install virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
+Best way is to get the code running quickly using virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
 Then run:
 
