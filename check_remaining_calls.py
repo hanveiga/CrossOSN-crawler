@@ -9,7 +9,7 @@ def check_remaining_calls(api_twitter):
             print "Remaining calls exhausted: Entered sleep period."
             time.sleep(15*60 + 10) # Wait 15 minutes - Twitter limits
             print "Remaining calls replendished: Exited sleep period."
-            U = api_twitter.get_user(screen_name='hanveiga') # Resetting the counter
+            U = api_twitter.get_user(screen_name='BarackObama') # Resetting the counter
                                                              # If we don't ping the server again we don't get the resetted response.
         else:
             pass
