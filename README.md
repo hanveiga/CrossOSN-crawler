@@ -7,9 +7,7 @@ __find_users.py__ searches through Twitter for users who crossposted Instagram a
 
 __fetch_data.py__ provides routines to fetch profile and user media when given user ids from instagram and twitter, and ids from media from twitter, instagram and foursquare
 
-__read_data.py__ routines that read data of the format given in 'sample_data'
-
-__make_dataset.py__ reads output from read_data.py and assembles data from users
+__read_data.py__ routines that read data of the format given in 'sample_data', fetches data and dumps a pickle of the user
 
 ## How to run the scripts
 Best way is to get the code running quickly using virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
