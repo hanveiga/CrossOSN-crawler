@@ -37,7 +37,7 @@ def fetch_tweet(tweet_id):
 	return api_twitter.get_status(tweet_id)
 
 def fetch_instaphoto(media_id):
-	return api_instagram.media(media_id)
+	return api_instagram.media_shortcode(media_id)
 
 def fetch_twitter_user(twitter_id):
 	return api_twitter.get_user(twitter_id)
