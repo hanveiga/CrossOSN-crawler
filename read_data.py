@@ -1,13 +1,13 @@
 import csv
 from collections import defaultdict
 import sys
+import cPickle as pickle
 
 import fetch_data as fd
 
 """ Read files of the format given in sample data and dumps a pickle """
 
 def read_user_data(user_csv,tweets_list=None,instagram_list=None,foursquare_list=None):
-
 	if tweets_list is not None:
 		tweets_per_user = defaultdict(list)
 		# If list of format user_id, tweets is provided
@@ -15,7 +15,7 @@ def read_user_data(user_csv,tweets_list=None,instagram_list=None,foursquare_list
 		try:		
 			twitter_data = csv.reader(open(tweets_list,'rb'))
 			# store a defaultdict(list) of user-id and tweetids
-			twitter_data.skip()
+			twitter_data.next()
 			for row in twitter_data:
 				user_id, tweet_id = row
 				tweets_per_user[user_id].append(tweet_id)
@@ -36,9 +36,9 @@ def read_user_data(user_csv,tweets_list=None,instagram_list=None,foursquare_list
 		    raise
 
 	if foursquare_list is not None:
-		fourquare_per_user = defaultdict(list)
+		foursquare_per_user = defaultdict(list)
 		try:		
-			foursquare_data = csv.reader(open(foursquare_lists,'rb'))
+			foursquare_data = csv.reader(open(foursquare_list,'rb'))
 			foursquare_data.next()
 			for row in foursquare_data:
 				user_id, tweet_id, checkin_id = row
@@ -48,9 +48,12 @@ def read_user_data(user_csv,tweets_list=None,instagram_list=None,foursquare_list
 		    raise
 
 
-	with open(csv_file,'rb') as user_csv:
+	with open(user_csv,'rb') as csvfile:
 		userdata = csv.reader(csvfile)
 		userdata.next() #header
+		twitter_per_user = defaultdict(list)
+		instagram_per_user = defaultdict(list)
+		foursquare_per_user = defaultdict(list)
 		for row in userdata:
 			twitter_id, instagram_id, foursquare_id, spammer = row
 			twitter_profile = fd.fetch_twitter_user(twitter_id)
@@ -63,11 +66,11 @@ def read_user_data(user_csv,tweets_list=None,instagram_list=None,foursquare_list
 			if not instagram_per_user[instagram_id]:
 				user.fetch_list_instagram(instagram_per_user[instagram_id])
 
-			if not fourquare_per_user[twitter_id]:
-				user.fetch_list_foursquare(fourquare_per_user[twitter_id])
+			if not foursquare_per_user[twitter_id]:
+				user.fetch_list_foursquare(foursquare_per_user[twitter_id])
 
 
-			pickle.dump(open(twitter_id+'.pkl','wb'),user)
+			pickle.dump(user,open(twitter_id+'.pkl','wb'))
 
 
 class UserTriplet(object):
@@ -88,7 +91,7 @@ class UserTriplet(object):
 
 	def fetch_list_foursquare(self,i_list):
 		for entry in i_list:
-			self.foursquare_timeline.append([fs.fetch_tweet[entry[0], \
+			self.foursquare_timeline.append([fs.fetch_tweet(entry[0]), \
 				fs.fetch_foursquare_venue(entry[1])])
 
 
