@@ -16,5 +16,13 @@ Then run:
 
 ```pip install -r requirements.txt```
 
+You need to fill / create the files __instagram_config.py__, __foursquare_config.py__ and __twitter_config.py__ and put the details (app id, app secret) of the apps you create at the respective platforms.
+
+To fetch data, you can test:
+
+```python read_data.py sample_data/users_linked.csv sample_data/user_tweets.csv sample_data/user_instaphotos.csv sample_data/user_4sqcheckins.csv ```
+
+The full dataset is here: http://cake.da.inf.ethz.ch/OSN-sigir2016/
+
 ## Dataset
 To get a snapshot of the dataset from February 2016 that you can create with these scripts, get in touch by mail with han.veiga@gmail.com
