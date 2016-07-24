@@ -5,6 +5,7 @@ Cross Online social Network Crawler to link users from Twitter, Instagram and Fo
 ## JSON dump of data:
 
 1. Download dataset and unzip http://cake.da.inf.ethz.ch/OSN-sigir2016/
+2. run: pip install -r requirements.txt to make sure you have the necessary libraries
 2. Create apps in Foursquare, instagram and twitter
 3. Fill in twitter_config.py, instagram_config.py and foursquare_config.py with your app details
 4. Run script get_tweet.py in the same folder as the dataset extracted
