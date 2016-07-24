@@ -34,8 +34,8 @@ def read_twitter_data(twitter_csv,path=''):
 
 			#text_file = open(save_to_path_2+'/'+tweet_id+".txt", "w")
 			#text_file.close()
-			if len(users)>2:
-				break
+			#if len(users)>2:
+			#	break
 
 def read_instagram_data(instagram_csv,path=''):
 	path = path + '/'
@@ -71,8 +71,9 @@ def read_instagram_data(instagram_csv,path=''):
 
 			#text_file = open(save_to_path_2+'/'+photo_id+".txt", "w")
 			#text_file.close()
-			if len(users)>2:
-				break
+
+			#if len(users)>2:
+			#	break
 
 def read_instagram_data_no_api(instagram_csv,path=''):
 	path = path + '/'
@@ -111,8 +112,8 @@ def read_instagram_data_no_api(instagram_csv,path=''):
 
 			#text_file = open(save_to_path_2+'/'+photo_id+".txt", "w")
 			#text_file.close()
-			if len(users)>2:
-				break
+			#if len(users)>2:
+			#	break
 
 def read_foursquare_data(foursquare_csv, path=''):
 	path = path + '/'
@@ -165,8 +166,8 @@ def crawl_dataset():
 			if twitter_id not in users:
 				os.mkdir(dataset+'/'+twitter_id) # index users by twitter id
 				users.append(twitter_id)
-			if len(users)>2:
-				break
+			#if len(users)>2:
+			#	break
 	# fill user folder with fqdata
 	read_foursquare_data('user_4sqcheckins.csv',path=dataset)
 	read_twitter_data('user_tweets.csv',path=dataset)
