@@ -1,6 +1,16 @@
 # CrossOSN
 Cross Online social Network Crawler to link users from Twitter, Instagram and Foursquare.
 
+
+## JSON dump of data:
+
+1. Download dataset and unzip http://cake.da.inf.ethz.ch/OSN-sigir2016/
+2. run: pip install -r requirements.txt to make sure you have the necessary libraries
+2. Create apps in Foursquare, instagram and twitter
+3. Fill in twitter_config.py, instagram_config.py and foursquare_config.py with your app details
+4. Run script get_tweet.py in the same folder as the dataset extracted
+5. This will create a folder called dataset_new, with users and subfolders for each social network, with json dumps of the data
+
 ## What do the scripts do:
 
 __find_users.py__ searches through Twitter for users who crossposted Instagram and Foursquare content and outputs a csv file with the user ids on Instagram and Twitter. The Foursquare ID is not given because the Foursquare API doesn't let you fetch users, but the users in the list have posted content from Foursquare.
@@ -24,5 +34,5 @@ To fetch data, you can test:
 
 The full dataset is here: http://cake.da.inf.ethz.ch/OSN-sigir2016/
 
-## Dataset
-To get a snapshot of the dataset from February 2016 that you can create with these scripts, get in touch by mail with han.veiga@gmail.com
+## Issues
+Email me on han.veiga@gmail.com and create a ticket on github! Thanks!
