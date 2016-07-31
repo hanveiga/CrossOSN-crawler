@@ -34,17 +34,19 @@ import foursquare_config as fconf
 api_foursquare = foursquare.Foursquare(client_id=fconf.client_id, client_secret=fconf.client_secret)
 
 def fetch_tweet(tweet_id):
+	limit.check_remaining_calls(api_twitter)
 	return api_twitter.get_status(tweet_id)
 
 def fetch_instaphoto(media_id):
 	return api_instagram.media_shortcode(media_id)
 
 def fetch_twitter_user(twitter_id):
+	limit.check_remaining_calls(api_twitter)
 	return api_twitter.get_user(twitter_id)
 
 def fetch_instagram_user(instagram_id):
 	return api_instagram.user(user_id=instagram_id)
 
 def fetch_foursquare_venue(venue_id):
+	limit.check_remaining_calls(api_twitter)
 	return api_foursquare.venues(venue_id)
-
